@@ -7,6 +7,7 @@
 > **Live Growth Status** — auto-updated after each training milestone | *Last updated: 2026-03-09 19:41*
 
 ![Shezzi Performance vs Frontier Models](assets/performance_chart.svg)
+![Shezzi Compute Footprint](assets/compute_chart.svg)
 
 | Capability | Current |
 |---|---|
