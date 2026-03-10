@@ -1,13 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 280" width="820" height="280" style="font-family:'Segoe UI',system-ui,Arial,sans-serif;background:#f8fafc;">
-<rect width="820" height="280" fill="#f8fafc" rx="10"/>
-<rect x="180" y="50" width="610" height="190" fill="white" stroke="#e2e8f0" stroke-width="1" rx="3"/>
-<text x="410" y="30" text-anchor="middle" font-size="13" font-weight="700" fill="#1e293b">Computational Power Requirement (Hardware Footprint)</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 280" width="940" height="280" style="font-family:'Segoe UI',system-ui,Arial,sans-serif;background:#f8fafc;">
+<rect width="940" height="280" fill="#f8fafc" rx="10"/>
+<rect x="180" y="50" width="730" height="190" fill="white" stroke="#e2e8f0" stroke-width="1" rx="3"/>
+<text x="470" y="30" text-anchor="middle" font-size="13" font-weight="700" fill="#1e293b">Computational Power Requirement (Hardware Footprint)</text>
 
 <!-- Grid lines for aesthetic -->
 <line x1="180" y1="50" x2="180" y2="240" stroke="#e2e8f0" stroke-width="1"/>
 <line x1="330" y1="50" x2="330" y2="240" stroke="#f1f5f9" stroke-width="2"/>
 <line x1="480" y1="50" x2="480" y2="240" stroke="#f1f5f9" stroke-width="2"/>
 <line x1="630" y1="50" x2="630" y2="240" stroke="#f1f5f9" stroke-width="2"/>
+<line x1="780" y1="50" x2="780" y2="240" stroke="#f1f5f9" stroke-width="2"/>
 
 <text x="165" y="80" text-anchor="end" font-size="12" fill="#475569" font-weight="600">Frontier Cloud APIs</text>
 <text x="165" y="96" text-anchor="end" font-size="10" fill="#94a3b8">GPT-4o, Claude</text>
