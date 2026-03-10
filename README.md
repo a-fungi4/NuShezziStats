@@ -9,6 +9,8 @@
 ![Shezzi Performance vs Frontier Models](assets/performance_chart.svg)
 ![Shezzi Compute Footprint](assets/compute_chart.svg)
 
+> **Compute Efficiency:** Shezzi requires **~80x to 400x less computational capacity (VRAM/FLOPs)** compared to frontier cloud models, while maintaining full localized sovereignty.
+
 | Capability | Current |
 |---|---|
 | Sovereign identity (zero system-prompt score) | **4.0/4.0** |
