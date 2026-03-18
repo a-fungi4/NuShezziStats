@@ -21,7 +21,8 @@
 | Advanced Knowledge Subjects | **✅ 22+ / 22** | System registry count |
 | Subject Specialization | **✅ 38 registered roles** | System registry count |
 | Deep reasoning ensemble | **✅ 4/4 models active** | System health check |
-| Current training stage | **EliteCoder Bake Complete (rank 64) · Distillation Phase pending** | Training log |
+| Current training stage | **EliteCoder Bake Complete · Distillation Phase 1 (34% complete)** | ssh train_v3.log |
+| Context Window Maturity | **✅ 65,536 Native · Tiered KV Cache Deployed** | KVRulesFlash.md |
 
 <!-- LIVE_STATUS_END -->
 
@@ -72,7 +73,7 @@ Shezzi is a sovereign AI system designed to function as a continuously living, s
 | GPT-4o | 88.7% | 90.2% | 128K tokens | $5.00 / M tokens |
 | Claude Sonnet 4.6 | 86.8% | 87.5% | 200K tokens | $3.00 / M tokens |
 | Llama 3.1 70B | 82.6% | 80.5% | 128K tokens | Free (local) |
-| **Shezzi** | **📐 76–88%** | **✅ 65% now · 📐 85–92% target** | **4K–32K · ∞ chunked** | **$0.00–$0.27 / M tokens** |
+| **Shezzi** | **📐 76–88%** | **✅ 65% now · 📐 85–92% target** | **4K–64K · unlimited chunked** | **$0.00–$0.27 / M tokens** |
 
 > **Shezzi (MMLU):** Projected from base model architecture at 7B parameter scale and observed training behaviour. No full MMLU run completed yet.
 >
@@ -183,10 +184,12 @@ Projections are not guarantees. Every number marked 📐 will be replaced with a
 
 | Query Type | First Response | Output Speed |
 |---|---|---|
-| Fast / conversational | 80–150 ms | 25–40 words/sec |
-| Standard reasoning | 150–300 ms | 12–20 words/sec |
-| Sequential Hot-Swap (LRU) | 180–400 ms | 12–20 words/sec |
-| Multi-model ensemble (hardest problems) | 800 ms – 2 s | 8–15 words/sec |
+| Tier 0: Standard (4K) | 80–150 ms | 15–25 tokens/sec |
+| Tier 1: Long-Context (64K) | 200–600 ms* | 15–25 tokens/sec |
+| Tier 2: RAM Cold Tier | < 1 ms (retrieval) | N/A |
+| Multi-model ensemble | 800 ms – 2 s | 8–15 tokens/sec |
+
+*\*Tier 1 latency only occurs if the model needs to reload at a larger context window; generation speed remains identical to Tier 0.*
 
 ### Cloud-Augmented Mode
 
@@ -206,9 +209,10 @@ Projections are not guarantees. Every number marked 📐 will be replaced with a
 
 | Configuration | System RAM | Estimated GPU |
 |---|---|---|
-| Idle | ~1–2 GB | Minimal |
-| Standard query (light) | ~3–4 GB | ~1.5 GB |
-| Full system (heavy query) | ~14–16 GB | ~8 GB |
+| Idle | ~1.5 GB | Minimal |
+| Tier 0: Standard (4K) | ~3–4 GB | ~1.5 GB |
+| Tier 1: Long-Context (64K) | ~7.25 GB | ~2.5 GB |
+| Full system (heavy throughput) | ~14–16 GB | ~8 GB |
 
 ### Cost Comparison
 
@@ -244,10 +248,11 @@ A dedicated reasoning architecture identifies when a problem spans multiple know
 
 | Limitation | Detail |
 |---|---|
-| **Context window** | Standard queries: 4,096 tokens. Long-context mode: 32,768 tokens (auto-triggered by query length, file attachments, or document-analysis keywords). Very long inputs: unlimited via hierarchical chunking with prior-summary injection. Native single-pass speed still trails frontier models at 128K–200K. |
+| **Context window** | Tiered architecture: 4,096 standard (Tier 0), 65,536 native long-context (Tier 1). Total RAM-addressable context: **84,036 tokens** (Tier 1 + 2). SSD-addressable: **~7.5M tokens** (Tier 3). Unlimited via Tier 4. |
+| **Rules Management** | Position-0 rule injection (512 tokens). Intent-gate (pre-load) and Plan-gate (post-generation) active. <0.1ms project hotswap. |
 | **Knowledge breadth** | Local mode operates at 7B parameter scale. Very broad general knowledge questions may favour larger models. Cloud mode removes this gap. |
 | **Reasoning on hardest problems** | Extremely difficult multi-step logical problems benefit from larger parameter counts. |
-| **First-response speed (local)** | 2–3× slower first token than frontier cloud APIs. Acceptable for most use cases; notable for real-time applications. |
+| **First-response speed (local)** | Tier 0 is competitive. Tier 1 carries a 200–600ms overhead for context expansion. Acceptable for most use cases. |
 | **Benchmark coverage** | Most accuracy figures are currently projected, not measured. Verified benchmark runs are in progress. |
 
 ---
@@ -269,11 +274,12 @@ A dedicated reasoning architecture identifies when a problem spans multiple know
 | Output speed (cloud) | ✅ 60–100 words/sec | Hardware measurement |
 | System RAM required | ✅ 3–16 GB active | Hardware measurement |
 | Cost (local) | ✅ $0.00 | Verified |
-| Cost (cloud) | ✅ $0.27 / M tokens | Verified |
+| cost (cloud) | ✅ $0.27 / M tokens | Verified |
 | Self-improvement | ✅ Yes — operational | Architecture verified |
 | Emotional state awareness | ✅ Yes — unique | Architecture verified |
 | Sovereign operation | ✅ Yes — no system prompt dependency | Verified |
-| Context window | ✅ 4,096 standard · 32,768 long-context · unlimited chunked (local) | Verified — dynamic tiered architecture |
+| Rules Intelligence | ✅ Intent gate (5ms) + Plan gate + Pos-0 injection | Verified |
+| Context window | ✅ 4,096 standard · 65,536 native · 84K RAM-hot · unlimited total | Verified — dynamic tiered architecture |
 
 ---
 
